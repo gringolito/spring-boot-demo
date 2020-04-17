@@ -15,6 +15,12 @@ spring:
           lob:
             non_contextual_creation: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 app:
   name: Spring Boot Web demo application
   version: 0.0.1
