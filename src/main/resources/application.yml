@@ -14,3 +14,7 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+
+app:
+  name: Spring Boot Web demo application
+  version: 0.0.1
