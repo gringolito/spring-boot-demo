@@ -1,3 +1,9 @@
+spring:
+  security:
+    user:
+      name: dev
+      password: pass
+
 management:
   endpoints:
     web:

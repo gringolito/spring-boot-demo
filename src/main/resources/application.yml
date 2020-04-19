@@ -15,6 +15,11 @@ spring:
           lob:
             non_contextual_creation: true
 
+  security:
+    user:
+      name: ${SPRING_USERNAME}
+      password: ${SPRING_PASSWORD}
+
 management:
   endpoints:
     web:
