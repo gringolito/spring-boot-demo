@@ -40,7 +40,6 @@ public class SessionsController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public Session update(@PathVariable Long id, @RequestBody final Session session) {
-        //TODO: Add validations that all attributes are passed id, otherwise return a 400 bad request
         Session currentSession = repository.getOne(id);
         BeanUtils.copyProperties(session, currentSession, "session_id");
         return repository.saveAndFlush(currentSession);

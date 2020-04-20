@@ -40,7 +40,6 @@ public class SpeakersController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public Speaker update(@PathVariable Long id, @RequestBody final Speaker speaker) {
-        //TODO: Add validations that all attributes are passed id, otherwise return a 400 bad request
         Speaker currentSpeaker = repository.getOne(id);
         BeanUtils.copyProperties(speaker, currentSpeaker, "speaker_id");
         return repository.saveAndFlush(currentSpeaker);
