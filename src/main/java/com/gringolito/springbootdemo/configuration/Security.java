@@ -13,6 +13,7 @@ public class Security extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/api").permitAll()
                 .anyRequest().authenticated()
-                .and().logout().permitAll();
+                .and()
+                .httpBasic();
     }
 }
