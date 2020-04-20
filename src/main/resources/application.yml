@@ -24,8 +24,12 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,metrics
+        include: health,info,metrics
 
 app:
   name: Spring Boot Web demo application
   version: 0.0.1
+  owner: Filipe Utzig
+  repository: https://github.com/gringolito/spring-boot-demo
+  contact:
+    email: dev@springbootdemo.null
