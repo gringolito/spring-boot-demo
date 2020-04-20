@@ -10,41 +10,37 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.data.web.JsonPath;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 class RootControllerIntegrationTest {
-	@LocalServerPort
-	private int port;
+    @Autowired
+    TestRestTemplate rest;
+    @LocalServerPort
+    private int port;
+    @Value("${app.name}")
+    private String appName;
 
-	@Autowired
-	TestRestTemplate rest;
+    @Value("${app.version}")
+    private String appVersion;
 
-	@Value("${app.name}")
-	private String appName;
+    @Test
+    public void getInfo() throws Exception {
+        String baseUrl = "http://localhost:" + port + "/";
 
-	@Value("${app.version}")
-	private String appVersion;
+        ResponseEntity<String> response = rest.getForEntity(baseUrl, String.class);
 
-	@Test
-	public void getInfo() throws Exception {
-		String baseUrl = "http://localhost:" + port + "/";
+        assertEquals(HttpStatus.OK, response.getStatusCode());
 
-		ResponseEntity<String> response = rest.getForEntity(baseUrl, String.class);
-
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-
-		JsonNode json = new ObjectMapper().readTree(response.getBody());
-		assertEquals(appName, json.path("name").asText());
-		assertEquals(appVersion, json.path("version").asText());
-	}
+        JsonNode json = new ObjectMapper().readTree(response.getBody());
+        assertEquals(appName, json.path("name").asText());
+        assertEquals(appVersion, json.path("version").asText());
+    }
 
 }

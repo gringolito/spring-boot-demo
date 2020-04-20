@@ -6,7 +6,7 @@ import org.springframework.boot.actuate.info.InfoContributor;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OwnerInfoContributor implements InfoContributor{
+public class OwnerInfoContributor implements InfoContributor {
     @Value("${app.owner}")
     private String projectOwner;
 
@@ -19,7 +19,7 @@ public class OwnerInfoContributor implements InfoContributor{
     @Override
     public void contribute(Info.Builder builder) {
         builder.withDetail("project_owner", projectOwner)
-               .withDetail("contact", contactEmail)
-               .withDetail("github_repository", githubRepository);
+                .withDetail("contact", contactEmail)
+                .withDetail("github_repository", githubRepository);
     }
 }
