@@ -1,6 +1,38 @@
-# Read Me First
+# Spring Boot Demo Application
+Author: [Filipe Utzig](https://github.com/gringolito)
 
-# Getting Started
+## About this project
+
+This is a Spring Boot demo application build based on the Conference App of the course
+[Spring Framework: Creating Your First Spring Boot Application](https://app.pluralsight.com/library/courses/creating-first-spring-boot-application/)
+by [Dan Bunker](https://github.com/dlbunker/). It is a Microservice that provides a couple of 
+REST APIs for a conference planning platform using the following tools and technologies:
+
+- Spring Boot Starter
+- Spring Boot Web
+- Spring Boot Data JPA (with Hibernate and PostgreSQL)
+- Spring Boot Actuator
+- Spring Boot Security
+- Spring Boot Test (with JUnit and Mockito)
+- Lombok
+- Swagger API
+- Maven
+
+### [APIs Documentation](https://gringolito.github.io/spring-boot-demo)
+
+The Swagger specification for the APIs of this project can be found on the
+[api-docs.json](docs/api-docs.json) file.
+ 
+The Swagger UI hosted documentation is available on [here](https://gringolito.github.io/spring-boot-demo/).
+
+### What's next
+
+- Use GitHub Actions to create an automated CI/CD pipeline
+- Improve Spring Boot Security functionality
+- Write more (useful) unit and integration tests
+- Automatically update the Swagger hosted documentation along the CI/CD pipeline
+
+# Spring Boot References
 
 ### Reference Documentation
 For further reference, please consider the following sections:
