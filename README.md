@@ -1,4 +1,7 @@
 # Spring Boot Demo Application
+
+[![CodeFactor](https://www.codefactor.io/repository/github/gringolito/spring-boot-demo/badge)](https://www.codefactor.io/repository/github/gringolito/spring-boot-demo)
+
 Author: [Filipe Utzig](https://github.com/gringolito)
 
 ## About this project
